@@ -29,12 +29,12 @@ $ curl https://api.all24.com/v1/tracking \
 
 Authentication to the API is performed via HTTP [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication). Provide your API key as the basic auth username value. You do not need to provide a password.
 
-all24 uses API keys to allow access to the API. You can register a new API key by mailing us at <a href="mailto:api@all24.com">api@all24.com</a>.
+all24 uses API keys to allow access to the API. You can register a new API key by contacting your Account Manager.
 
 <aside class="notice">
 You must replace <code>api_key</code> with your personal API key.
 <br>
-All API requests must be made over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). Calls made over plain HTTP will fail. API requests without authentication will also fail.
+All API requests must be made over <a href="https://en.wikipedia.org/wiki/HTTPS" target="_blank">HTTPS</a>. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 </aside>
 
 # Errors
@@ -48,7 +48,7 @@ all24 uses conventional HTTP response codes to indicate the success or failure o
  401 - Unauthorized | No valid API key provided.
  402 - Request Faile | The parameters were valid but the request failed.
  404 - Not Found | The requested resource doesn't exist.
- 409 - Conflict | The request conflicts with another request (perhaps due to using the same idempotent key).
+ 409 - Conflict | The request conflicts with another request.
  429 - Too Many Requests | Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.
  500, 502, 503, 504 - Server Errors | Something went wrong on all24's end.
 
@@ -147,7 +147,7 @@ $ curl https://api.all24.com/v1/tracking/orders
 }
 ```
 
-Retrieves the all the location with timestamp that this order went through.
+Retrieves all the locations with timestamp that this order went through.
 
 ### HTTP Request
 
@@ -300,7 +300,7 @@ $ curl https://api.all24.com/v1/tracking/orders
 }
 ```
 
-Retrieves the all the location with timestamp that this order went through.
+Retrieves all the locations with timestamp that this order went through.
 
 ### HTTP Request
 
@@ -361,7 +361,9 @@ error_codes|1350|Order Not found
 Location|{ "location_name": "","service_area": "", "postcode": "" }| Location object
 Event Location|{ "location_name": "","service_area": "", "postcode": "" }| Event Location object
 
-# Shipping API
+# Shipping
+
+## Delivery Order
 
 ```shell
 #Request:
@@ -455,6 +457,7 @@ $ curl https://api.all24.com/v1/shipping
 ```
 
 Delivery order instruction to all24.
+This typically comes from ecommerce platform (Sales Order) or a warehouse management system (Delivery Order).
 
 ### HTTP Request
 
