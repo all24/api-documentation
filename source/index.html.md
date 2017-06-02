@@ -367,7 +367,6 @@ Event Location|{ "location_name": "","service_area": "", "postcode": "" }| Event
 #Request:
 $ curl https://api.all24.com/v1/shipping
   -u api_key: \
-  -d customer_id=12345 \
   -d hs_meta[schema-type]=hs-delivery-order, \
   -d hs_meta[schema-version]=1.0, \
   -d hs_delivery_order[origin_order_date]="2015-08-18T11:12:00+07:00", \
