@@ -374,6 +374,7 @@ $ curl https://api.all24.com/v1/shipping
   -d hs_delivery_order[origin_order_date]="2015-08-18T11:12:00+07:00", \
   -d hs_delivery_order[shipper]="HSLZTH", \
   -d hs_delivery_order[shipper_order_reference]="FRETEST003", \
+  -d hs_delivery_order[shipment_value]="1234.00", \
   -d hs_delivery_order[remarks]="", \
   -d hs_delivery_order[service_requirements]={ \
   -d hs_delivery_order[service_contract_reference]="HSLZTHND", \
@@ -474,6 +475,7 @@ hs_delivery_order|HSDeliveryOrder|mandatory
 hs_delivery_order[origin_order_date]|string|mandatory
 hs_delivery_order[shipper]|string|mandatory
 hs_delivery_order[shipper_order_reference]|string|mandatory
+hs_delivery_order[shipment_value]|string|optional
 hs_delivery_order[remarks]|string|optional
 hs_delivery_order[service_requirements]|ServiceRequirements|mandatory
 hs_delivery_order[service_requirements][service_contract_reference]|string|mandatory
