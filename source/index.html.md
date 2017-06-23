@@ -367,7 +367,7 @@ Event Location|{ "location_name": "","service_area": "", "postcode": "" }| Event
 
 ```shell
 #Request:
-$ curl https://api.all24.com/v1/shipping
+$ curl https://api.all24.com/v1/shipping/orders/new
   -u api_key: \
   -d hs_meta[schema-type]=hs-delivery-order, \
   -d hs_meta[schema-version]=1.0, \
@@ -462,7 +462,7 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
 
 ### HTTP Request
 
-`POST https://api.all24.com/v1/tracking/shipping?hs_meta[schema-type]&...`
+`POST https://api.all24.com/v1/shipping/orders/new?hs_meta[schema-type]&...`
 
 ### Query Parameters
 
