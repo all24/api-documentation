@@ -502,7 +502,7 @@ error_codes|1350|Order Not found
 #Request:
 $ curl https://api.all24.com/rest/v2/shipping/orders/new
   -u api_key: \
-  -d hs_meta[schema-type]="hs-shipping-order \
+  -d hs_meta[schema-type]=hs-shipping-order \
   -d hs_meta[schema-version]=1.0 \
   -d hs_shipping_order[shipper]=HSXYZTH \
   -d hs_shipping_order[shipper_order_reference]=XYZ20170623000001 \
