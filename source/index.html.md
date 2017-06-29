@@ -596,7 +596,7 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
 
 ### HTTP Request
 
-`POST https://api.all24.com/v1/shipping/orders/new?hs_meta[schema-type]&...`
+`POST https://api.all24.com/rest/v1/shipping/orders/new?hs_meta[schema-type]&...`
 
 ### Query Parameters
 
