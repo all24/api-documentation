@@ -380,7 +380,7 @@ $ curl https://api.all24.com/rest/v2/tracking/orders
 }
 ```
 
-Retrieves all the locations with timestamp that this order went through.
+Retrieves all the event locations with timestamp that this order went through.
 
 ### HTTP Request
 
@@ -496,7 +496,7 @@ error_codes|1350|Order Not found
 
 # Shipping
 
-## Create Delivery Order
+## Create Shipping Order
 
 ```shell
 #Request:
@@ -591,7 +591,7 @@ $ curl https://api.all24.com/rest/v2/shipping/orders/new
   -d hs_shipping_order[return_location][remarks]=
 ```
 
-Delivery order instruction to all24.
+Shipping order instruction to all24.
 This typically comes from ecommerce platform (Sales Order) or a warehouse management system (Delivery Order).
 
 ### HTTP Request
@@ -721,7 +721,7 @@ error_codes|4000|Failed to Create Order
 error_codes|4100|Duplicate Order
 
 
-## Cancel Shipment Item
+## Cancel Shipping Order Item
 
 ```shell
 #Request:
@@ -731,7 +731,7 @@ $ curl https://api.all24.com/rest/v2/shipping/orders/items/cancel
   -d shipment_item_ref=XYZI1234567890
 ```
 
-Cancels specific shipment items for a shipping order.
+Cancels a specific item on a shipping order.
 
 ### HTTP Request
 
@@ -785,7 +785,7 @@ $ curl https://api.all24.com/rest/v1/warehouses/purchase-orders/new
   -d hs_purchase_order[supplier_name]=Some Supplier Co., Ltd. \
 ```
 
-Creates a Purchase Order for selected warehouse
+Creates a Purchase Order for a specific Warehouse
 
 ### HTTP Request
 
@@ -851,7 +851,7 @@ $ curl https://api.all24.com/rest/v1/warehouse/locations/products/new
   -d hs_product_details[supplier_info][0][cost][0][is_primary]=true
 ```
 
-Add a new product for selected warehouse
+Adds a new product for a specific warehouse
 
 ### HTTP Request
 

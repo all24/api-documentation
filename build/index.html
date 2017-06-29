@@ -612,7 +612,7 @@ All API requests must be made over <a href="https://en.wikipedia.org/wiki/HTTPS"
   </span><span class="s2">"error_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves all the locations with timestamp that this order went through.</p>
+<p>Retrieves all the event locations with timestamp that this order went through.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1051,104 +1051,104 @@ All API requests must be made over <a href="https://en.wikipedia.org/wiki/HTTPS"
 
 <h1 id="shipping">Shipping</h1>
 
-<h2 id="create-delivery-order">Create Delivery Order</h2>
+<h2 id="create-shipping-order">Create Shipping Order</h2>
 <pre class="highlight shell tab-shell"><code><span class="c">#Request:</span>
 <span class="gp">$ </span>curl https://api.all24.com/rest/v2/shipping/orders/new
   -u api_key: <span class="se">\</span>
-  -d hs_meta[schema-type]<span class="o">=</span><span class="s2">"hs-shipping-order </span><span class="se">\</span><span class="s2">
-  -d hs_meta[schema-version]=1.0 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipper]=HSXYZTH </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipper_order_reference]=XYZ20170623000001 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[origin_order_date]=2015-08-18T11:12:00+07:00 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[remarks]=Some One is a first time customer </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][location_ref]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][zone]=THBKKKTY </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][company]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][building]=Some Tower </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][room]=123/123 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][floor]=8th </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][addressline1]=Rama 4 Road </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][addressline2]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][addressline3]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][addressline4]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][city]=Klong Thoey </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][province]=Bangkok </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][postcode]=10110 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][country]=Thailand </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][notes_for_driver]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][name]=Some One </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][phone]=0987654321 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][email]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[recipient_location][remarks]=
-  -d hs_shipping_order[service_requirements][service_contract_reference]=HSXYZTHSTD </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[service_requirements][is_cash_on_delivery]=yes </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[service_requirements][expected_completion]=2015-08-23T23:59:59+07:00 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[payment_requirements][cod_amount]=1100.00 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[payment_requirements][charge_items][0][display_text]=Some other charges (global) </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[payment_requirements][charge_items][0][display_sequence]=0 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[payment_requirements][charge_items][0][amount]=100.00
-  -d hs_shipping_order[shipment_items][0][shipper_item_reference]=XYZI1234567890 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][sku]=S12T-Gec-RS </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][quantity]=1 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][description]=Summer 2012 </span><span class="se">\ </span><span class="s2">Gecko Tee </span><span class="se">\ </span><span class="s2">Small </span><span class="se">\ </span><span class="s2">Red </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][declared_value]=1000.00 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][length]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][width]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][height]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][weight]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][weight_unit]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][goods_details][remarks_on_goods]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][0][display_text]=Price (Item) </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][0][display_sequence]=0 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][0][amount]=1000.00
-  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][1][display_text]=Tax (Item) </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][1][display_sequence]=1 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][1][amount]=70.00
-  -d hs_shipping_order[sender_location][location_ref]=XYZL1234567THSAMUT </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][zone]=THBKKBPLEE </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][company]=Some Warehouse Co. </span><span class="se">\ </span><span class="s2">Ltd. </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][building]=Warehouse 3 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][room]=Gate B </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][floor]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][addressline1]=M9 Some road </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][addressline2]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][addressline3]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][addressline4]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][city]=Bangpla </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][province]=Samutprakan </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][postcode]=10540 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][country]=Thailand </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][notes_for_driver]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][name]=Warehouse outbound </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][phone]=0245657896 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][email]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[sender_location][remarks]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][location_ref]=XYZL1234568THSAMUT </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][zone]=THBKKBPLEE </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][company]=Some Warehouse Co. </span><span class="se">\ </span><span class="s2">Ltd. </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][building]=Warehouse 4 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][room]=Gate B </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][floor]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][addressline1]=M9 Some road </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][addressline2]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][addressline3]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][addressline4]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][city]=Bangpla </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][province]=Samutprakan </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][postcode]=10540 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][country]=Thailand </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][notes_for_driver]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][name]=Warehouse inbound </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][phone]=0245657897 </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][email]= </span><span class="se">\</span><span class="s2">
-  -d hs_shipping_order[return_location][remarks]=
-</span></code></pre>
-<p>Delivery order instruction to all24.
+  -d hs_meta[schema-type]<span class="o">=</span>hs-shipping-order <span class="se">\</span>
+  -d hs_meta[schema-version]<span class="o">=</span>1.0 <span class="se">\</span>
+  -d hs_shipping_order[shipper]<span class="o">=</span>HSXYZTH <span class="se">\</span>
+  -d hs_shipping_order[shipper_order_reference]<span class="o">=</span>XYZ20170623000001 <span class="se">\</span>
+  -d hs_shipping_order[origin_order_date]<span class="o">=</span>2015-08-18T11:12:00+07:00 <span class="se">\</span>
+  -d hs_shipping_order[remarks]<span class="o">=</span>Some One is a first <span class="nb">time </span>customer <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][location_ref]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][zone]<span class="o">=</span>THBKKKTY <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][company]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][building]<span class="o">=</span>Some Tower <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][room]<span class="o">=</span>123/123 <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][floor]<span class="o">=</span>8th <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][addressline1]<span class="o">=</span>Rama 4 Road <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][addressline2]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][addressline3]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][addressline4]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][city]<span class="o">=</span>Klong Thoey <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][province]<span class="o">=</span>Bangkok <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][postcode]<span class="o">=</span>10110 <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][country]<span class="o">=</span>Thailand <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][notes_for_driver]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][name]<span class="o">=</span>Some One <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][phone]<span class="o">=</span>0987654321 <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][email]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[recipient_location][remarks]<span class="o">=</span>
+  -d hs_shipping_order[service_requirements][service_contract_reference]<span class="o">=</span>HSXYZTHSTD <span class="se">\</span>
+  -d hs_shipping_order[service_requirements][is_cash_on_delivery]<span class="o">=</span>yes <span class="se">\</span>
+  -d hs_shipping_order[service_requirements][expected_completion]<span class="o">=</span>2015-08-23T23:59:59+07:00 <span class="se">\</span>
+  -d hs_shipping_order[payment_requirements][cod_amount]<span class="o">=</span>1100.00 <span class="se">\</span>
+  -d hs_shipping_order[payment_requirements][charge_items][0][display_text]<span class="o">=</span>Some other charges <span class="o">(</span>global<span class="o">)</span> <span class="se">\</span>
+  -d hs_shipping_order[payment_requirements][charge_items][0][display_sequence]<span class="o">=</span>0 <span class="se">\</span>
+  -d hs_shipping_order[payment_requirements][charge_items][0][amount]<span class="o">=</span>100.00
+  -d hs_shipping_order[shipment_items][0][shipper_item_reference]<span class="o">=</span>XYZI1234567890 <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][sku]<span class="o">=</span>S12T-Gec-RS <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][quantity]<span class="o">=</span>1 <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][description]<span class="o">=</span>Summer 2012 <span class="se">\ </span>Gecko Tee <span class="se">\ </span>Small <span class="se">\ </span>Red <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][declared_value]<span class="o">=</span>1000.00 <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][length]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][width]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][height]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][weight]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][weight_unit]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][goods_details][remarks_on_goods]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][0][display_text]<span class="o">=</span>Price <span class="o">(</span>Item<span class="o">)</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][0][display_sequence]<span class="o">=</span>0 <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][0][amount]<span class="o">=</span>1000.00
+  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][1][display_text]<span class="o">=</span>Tax <span class="o">(</span>Item<span class="o">)</span> <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][1][display_sequence]<span class="o">=</span>1 <span class="se">\</span>
+  -d hs_shipping_order[shipment_items][0][payment_requirements][charge_items][1][amount]<span class="o">=</span>70.00
+  -d hs_shipping_order[sender_location][location_ref]<span class="o">=</span>XYZL1234567THSAMUT <span class="se">\</span>
+  -d hs_shipping_order[sender_location][zone]<span class="o">=</span>THBKKBPLEE <span class="se">\</span>
+  -d hs_shipping_order[sender_location][company]<span class="o">=</span>Some Warehouse Co. <span class="se">\ </span>Ltd. <span class="se">\</span>
+  -d hs_shipping_order[sender_location][building]<span class="o">=</span>Warehouse 3 <span class="se">\</span>
+  -d hs_shipping_order[sender_location][room]<span class="o">=</span>Gate B <span class="se">\</span>
+  -d hs_shipping_order[sender_location][floor]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[sender_location][addressline1]<span class="o">=</span>M9 Some road <span class="se">\</span>
+  -d hs_shipping_order[sender_location][addressline2]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[sender_location][addressline3]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[sender_location][addressline4]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[sender_location][city]<span class="o">=</span>Bangpla <span class="se">\</span>
+  -d hs_shipping_order[sender_location][province]<span class="o">=</span>Samutprakan <span class="se">\</span>
+  -d hs_shipping_order[sender_location][postcode]<span class="o">=</span>10540 <span class="se">\</span>
+  -d hs_shipping_order[sender_location][country]<span class="o">=</span>Thailand <span class="se">\</span>
+  -d hs_shipping_order[sender_location][notes_for_driver]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[sender_location][name]<span class="o">=</span>Warehouse outbound <span class="se">\</span>
+  -d hs_shipping_order[sender_location][phone]<span class="o">=</span>0245657896 <span class="se">\</span>
+  -d hs_shipping_order[sender_location][email]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[sender_location][remarks]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][location_ref]<span class="o">=</span>XYZL1234568THSAMUT <span class="se">\</span>
+  -d hs_shipping_order[return_location][zone]<span class="o">=</span>THBKKBPLEE <span class="se">\</span>
+  -d hs_shipping_order[return_location][company]<span class="o">=</span>Some Warehouse Co. <span class="se">\ </span>Ltd. <span class="se">\</span>
+  -d hs_shipping_order[return_location][building]<span class="o">=</span>Warehouse 4 <span class="se">\</span>
+  -d hs_shipping_order[return_location][room]<span class="o">=</span>Gate B <span class="se">\</span>
+  -d hs_shipping_order[return_location][floor]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][addressline1]<span class="o">=</span>M9 Some road <span class="se">\</span>
+  -d hs_shipping_order[return_location][addressline2]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][addressline3]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][addressline4]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][city]<span class="o">=</span>Bangpla <span class="se">\</span>
+  -d hs_shipping_order[return_location][province]<span class="o">=</span>Samutprakan <span class="se">\</span>
+  -d hs_shipping_order[return_location][postcode]<span class="o">=</span>10540 <span class="se">\</span>
+  -d hs_shipping_order[return_location][country]<span class="o">=</span>Thailand <span class="se">\</span>
+  -d hs_shipping_order[return_location][notes_for_driver]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][name]<span class="o">=</span>Warehouse inbound <span class="se">\</span>
+  -d hs_shipping_order[return_location][phone]<span class="o">=</span>0245657897 <span class="se">\</span>
+  -d hs_shipping_order[return_location][email]<span class="o">=</span> <span class="se">\</span>
+  -d hs_shipping_order[return_location][remarks]<span class="o">=</span>
+</code></pre>
+<p>Shipping order instruction to all24.
 This typically comes from ecommerce platform (Sales Order) or a warehouse management system (Delivery Order).</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://api.all24.com/v1/shipping/orders/new?hs_meta[schema-type]&amp;...</code></p>
+<p><code class="prettyprint">POST https://api.all24.com/rest/v1/shipping/orders/new?hs_meta[schema-type]&amp;...</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -1719,14 +1719,14 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
 </tr>
 </tbody></table>
 
-<h2 id="cancel-shipment-item">Cancel Shipment Item</h2>
+<h2 id="cancel-shipping-order-item">Cancel Shipping Order Item</h2>
 <pre class="highlight shell tab-shell"><code><span class="c">#Request:</span>
 <span class="gp">$ </span>curl https://api.all24.com/rest/v2/shipping/orders/items/cancel
   -u api_key: <span class="se">\</span>
   -d <span class="nv">shipper_order_ref</span><span class="o">=</span>XYZ20170623000001 <span class="se">\</span>
   -d <span class="nv">shipment_item_ref</span><span class="o">=</span>XYZI1234567890
 </code></pre>
-<p>Cancels specific shipment items for a shipping order.</p>
+<p>Cancels a specific item on a shipping order.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1830,7 +1830,7 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
   -d hs_purchase_order[po_number]<span class="o">=</span>XYZ1234PO <span class="se">\</span>
   -d hs_purchase_order[supplier_name]<span class="o">=</span>Some Supplier Co., Ltd. <span class="se">\</span>
 </code></pre>
-<p>Creates a Purchase Order for selected warehouse</p>
+<p>Creates a Purchase Order for a specific Warehouse</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1995,7 +1995,7 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
   -d hs_product_details[supplier_info][0][cost][0][supplier_name]<span class="o">=</span>Some Supplier <span class="se">\</span>
   -d hs_product_details[supplier_info][0][cost][0][is_primary]<span class="o">=</span><span class="nb">true</span>
 </code></pre>
-<p>Add a new product for selected warehouse</p>
+<p>Adds a new product for a specific warehouse</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
