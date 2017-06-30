@@ -735,7 +735,7 @@ Cancels a specific item on a shipping order.
 
 ### HTTP Request
 
-`POST https://api.all24.com/rest/v2/shipping/orders/items/cancel?shipper_order_ref=XYZ20170623000001&shipment_item_ref=XYZI1234567890
+`POST https://api.all24.com/rest/v2/shipping/orders/items/cancel?shipper_order_ref=XYZ20170623000001&shipment_item_ref=XYZI1234567890`
 
 
 ### Query Parameters
