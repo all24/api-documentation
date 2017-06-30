@@ -829,13 +829,13 @@ error_codes|1011|Meta schema type missing
 error_codes|1012|Meta schema version missing
 error_codes|1013|Payload missing
 
-## Add Product
+## Create Product
 
 ```shell
 #Request:
 $ curl https://api.all24.com/rest/v1/warehouse/locations/products/new
   -u api_key: \
-  -d hs_meta[schema-type]=hs-purchase-order \
+  -d hs_meta[schema-type]=hs-create-product\
   -d hs_meta[schema-version]=1.0 \
   -d hs_product_details[shipper]=HSXYZTH \
   -d hs_product_details[warehouse_location_ref]=cim1if4pu0001fjmiyl0bu90f \
@@ -851,7 +851,7 @@ $ curl https://api.all24.com/rest/v1/warehouse/locations/products/new
   -d hs_product_details[supplier_info][0][cost][0][is_primary]=true
 ```
 
-Adds a new product for a specific warehouse
+Creates a new product for a specific warehouse
 
 ### HTTP Request
 
@@ -885,7 +885,7 @@ supplier_info[is_primary]|String|Mandatory
 
 Attribute|Type
 ---------|----
-response_code|string
+response_code|String
 error_codes|Array
 
 ### Response Type

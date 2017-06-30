@@ -1976,11 +1976,11 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
 </tr>
 </tbody></table>
 
-<h2 id="add-product">Add Product</h2>
+<h2 id="create-product">Create Product</h2>
 <pre class="highlight shell tab-shell"><code><span class="c">#Request:</span>
 <span class="gp">$ </span>curl https://api.all24.com/rest/v1/warehouse/locations/products/new
   -u api_key: <span class="se">\</span>
-  -d hs_meta[schema-type]<span class="o">=</span>hs-purchase-order <span class="se">\</span>
+  -d hs_meta[schema-type]<span class="o">=</span>hs-create-product<span class="se">\</span>
   -d hs_meta[schema-version]<span class="o">=</span>1.0 <span class="se">\</span>
   -d hs_product_details[shipper]<span class="o">=</span>HSXYZTH <span class="se">\</span>
   -d hs_product_details[warehouse_location_ref]<span class="o">=</span>cim1if4pu0001fjmiyl0bu90f <span class="se">\</span>
@@ -1995,7 +1995,7 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
   -d hs_product_details[supplier_info][0][cost][0][supplier_name]<span class="o">=</span>Some Supplier <span class="se">\</span>
   -d hs_product_details[supplier_info][0][cost][0][is_primary]<span class="o">=</span><span class="nb">true</span>
 </code></pre>
-<p>Adds a new product for a specific warehouse</p>
+<p>Creates a new product for a specific warehouse</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2107,7 +2107,7 @@ This typically comes from ecommerce platform (Sales Order) or a warehouse manage
 </thead><tbody>
 <tr>
 <td>response_code</td>
-<td>string</td>
+<td>String</td>
 </tr>
 <tr>
 <td>error_codes</td>
